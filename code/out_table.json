@@ -1,0 +1,106 @@
+{
+ "seed": 20260921,
+ "n_boot": 2000,
+ "operator": {
+  "Cruise": {
+   "af": 11.391306229003625,
+   "boot_lo": 2.585334817721215,
+   "boot_hi": 21.7773529430613,
+   "n_treat": 16,
+   "n_total": 112,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  },
+  "Other": {
+   "af": 0.6375886874370642,
+   "boot_lo": 0.47877067874007284,
+   "boot_hi": 0.8199340526949347,
+   "n_treat": 2,
+   "n_total": 91,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  },
+  "Tesla": {
+   "af": 2.500000000022769,
+   "boot_lo": 1.0,
+   "boot_hi": 4.0,
+   "n_treat": 2,
+   "n_total": 4,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  },
+  "Waymo": {
+   "af": 2.1189077938718217,
+   "boot_lo": 1.0549664742818379,
+   "boot_hi": 3.4531810445251083,
+   "n_treat": 22,
+   "n_total": 328,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  },
+  "Zoox": {
+   "af": 1.7694284657432682,
+   "boot_lo": 0.9563728108726509,
+   "boot_hi": 2.608663503898797,
+   "n_treat": 8,
+   "n_total": 106,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  }
+ },
+ "era": {
+  "pre": {
+   "af": 5.101623615290151,
+   "boot_lo": 1.6526218182709544,
+   "boot_hi": 9.645079905244229,
+   "n_treat": 20,
+   "n_total": 246,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  },
+  "post": {
+   "af": 6.777005506589319,
+   "boot_lo": 1.2676185706766212,
+   "boot_hi": 14.073375167782444,
+   "n_treat": 31,
+   "n_total": 214,
+   "n_replicates_used": 2000,
+   "n_replicates_discarded": 0
+  }
+ },
+ "jackknife": {
+  "by_metro": {
+   "Austin": 4.463366754555981,
+   "Las Vegas": 4.682579488141767,
+   "Los Angeles": 4.741701408380686,
+   "Phoenix": 4.648947510925042,
+   "SF Bay": 1.9476786840616933
+  },
+  "min": 1.9476786840616933,
+  "max": 4.741701408380686
+ },
+ "excl_cruise": {
+  "af": 3.1748900282060974,
+  "boot_lo": 1.6849503459962396,
+  "boot_hi": 5.132224222767936,
+  "n_treat": 50,
+  "n_total": 428,
+  "n_replicates_used": 2000,
+  "n_replicates_discarded": 0
+ },
+ "unique_outlets": {
+  "af": 4.055153239909112,
+  "boot_lo": 2.10363165420034,
+  "boot_hi": 6.409673240077663,
+  "n_treat": 51,
+  "n_total": 429,
+  "n_replicates_used": 2000,
+  "n_replicates_discarded": 0
+ },
+ "ztnb": {
+  "af": 13.735311381881404,
+  "lo": 6.335124532846979,
+  "hi": 29.779805871070753,
+  "converged": true
+ }
+}

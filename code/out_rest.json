@@ -1,0 +1,159 @@
+{
+ "seed": 20260921,
+ "local": {
+  "primary_all_events": {
+   "ratio": 2.5510065044301613,
+   "lo": 1.3111842271630667,
+   "hi": 4.963173023919896
+  },
+  "incidence_or": 0.10606212842004416,
+  "positive_intensity": {
+   "ratio": 3.7572355972986475,
+   "lo": 2.0234089153358594,
+   "hi": 6.976750584923124
+  },
+  "n_events": 429,
+  "n_av": 51,
+  "zero_local_av": 21,
+  "zero_local_hu": 29,
+  "n_positive": 377,
+  "by_severity": {
+   "PDO": {
+    "ratio": 0.8510934448973067,
+    "lo": 0.5446098201308176,
+    "hi": 1.330053232924023,
+    "n_treat": 33
+   },
+   "Injury": {
+    "ratio": 6.265845219046551,
+    "lo": 3.00230678943585,
+    "hi": 13.076883564063035,
+    "n_treat": 17
+   }
+  }
+ },
+ "followup": {
+  "cutoff": "2025-09-18",
+  "window_days": 180,
+  "n_events_eligible": {
+   "AV": 42,
+   "Ped": 704
+  },
+  "n_events_total": {
+   "AV": 51,
+   "Ped": 746
+  },
+  "n_articles": {
+   "AV": 350,
+   "Ped": 1031
+  }
+ },
+ "tail": {
+  "AV": {
+   "article_weighted": 0.5428571428571428,
+   "event_weighted_mean": 0.45746680765337483,
+   "event_weighted_median": 0.30714285714285716,
+   "ew_lo": 0.3140580983071655,
+   "ew_hi": 0.6087260553501225,
+   "n_events": 40
+  },
+  "Ped": {
+   "article_weighted": 0.05722599418040737,
+   "event_weighted_mean": 0.06081015129331381,
+   "event_weighted_median": 0.0,
+   "ew_lo": 0.044067837969741334,
+   "ew_hi": 0.07862371888726208,
+   "n_events": 683
+  }
+ },
+ "halflife_peak": {
+  "AV": {
+   "peak_day": 1,
+   "half_life": 2.2547488619952993,
+   "lo": 1.6507638039510029,
+   "hi": 4.915139688051025,
+   "n_boot_ok": 996
+  },
+  "Ped": {
+   "peak_day": 1,
+   "half_life": 1.2776899108903572,
+   "lo": 1.1254213120266434,
+   "hi": 1.441780412803236,
+   "n_boot_ok": 1000
+  }
+ },
+ "daily_profile": {
+  "AV": {
+   "daily_0_14": [
+    10,
+    46,
+    45,
+    9,
+    8,
+    10,
+    6,
+    11,
+    1,
+    3,
+    0,
+    1,
+    3,
+    0,
+    7
+   ],
+   "peak_day": 1
+  },
+  "Ped": {
+   "daily_0_14": [
+    333,
+    357,
+    88,
+    52,
+    41,
+    19,
+    19,
+    9,
+    8,
+    7,
+    5,
+    5,
+    4,
+    1,
+    4
+   ],
+   "peak_day": 1
+  }
+ },
+ "timing_nonparametric": {
+  "AV": {
+   "median_lag_article_weighted": 17.0,
+   "median_of_event_medians": 12.0,
+   "p75_article": 37.0,
+   "p90_article": 90.10000000000002
+  },
+  "Ped": {
+   "median_lag_article_weighted": 1.0,
+   "median_of_event_medians": 1.0,
+   "p75_article": 2.0,
+   "p90_article": 7.0
+  }
+ },
+ "composition": {
+  "AV": {
+   "article_weighted_share": 0.5501285347043702,
+   "event_weighted_mean": 0.58210943792714,
+   "ew_lo": 0.4713434188656915,
+   "ew_hi": 0.6974516927996735,
+   "n_articles": 389,
+   "n_events": 51
+  },
+  "Ped": {
+   "article_weighted_share": 0.19477006311992787,
+   "event_weighted_mean": 0.17575960679177835,
+   "ew_lo": 0.15180685880250222,
+   "ew_hi": 0.20125893655049146,
+   "n_articles": 1109,
+   "n_events": 746
+  }
+ }
+}

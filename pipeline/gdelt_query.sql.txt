@@ -1,0 +1,56 @@
+// Read service account file name dynamically
+const files = fs.readdirSync(root);
+const credsFile = files.find(f => f.startsWith('gdelt-') && f.endsWith('.json'));
+if (!credsFile) {
+  console.error('Error: GCP Service Account JSON file (e.g. gdelt-*.json) not found in project root.');
+  process.exit(1);
+}
+const GCP_CREDENTIALS = JSON.parse(fs.readFileSync(path.join(root, credsFile), 'utf8'));
+
+const BIGQUERY_SQL = `
+    SELECT 
+      DocumentIdentifier as url,
+      SourceCommonName as source_domain,
+      DATE,
+      V2Locations as locations
+    FROM 
+      \`gdelt-bq.gdeltv2.gkg_partitioned\`
+    WHERE 
+      _PARTITIONTIME >= TIMESTAMP(CONCAT(CAST(@startDate AS STRING), ' 00:00:00'))
+      AND _PARTITIONTIME <= TIMESTAMP(CONCAT(CAST(@endDate AS STRING), ' 23:59:59'))
+      AND V2Locations LIKE '%#US#%'
+      AND (TranslationInfo IS NULL OR TranslationInfo = '')
+      AND REGEXP_CONTAINS(V2Locations, @stateRegex)
+      AND (
+        LOWER(DocumentIdentifier) LIKE '%waymo%'
+        OR LOWER(DocumentIdentifier) LIKE '%robotaxi%'
+        OR LOWER(DocumentIdentifier) LIKE '%driverless%taxi%'
+        OR LOWER(DocumentIdentifier) LIKE '%driverless%car%'
+        OR LOWER(DocumentIdentifier) LIKE '%self-driving%car%'
+        OR LOWER(DocumentIdentifier) LIKE '%autonomous%vehicle%'
+        OR LOWER(DocumentIdentifier) LIKE '%autonomous%car%'
+        OR LOWER(DocumentIdentifier) LIKE '%autopilot%'
+        OR LOWER(DocumentIdentifier) LIKE '%zoox%'
+        OR LOWER(DocumentIdentifier) LIKE '%tesla%fsd%'
+        OR LOWER(DocumentIdentifier) LIKE '%cruise%driverless%'
+        OR LOWER(DocumentIdentifier) LIKE '%cruise%autonomous%'
+      )
+      AND (
+        V2Themes LIKE '%ACCIDENT%'
+        OR V2Themes LIKE '%ROAD_ACCIDENT%'
+        OR V2Themes LIKE '%KILL%'
+        OR V2Themes LIKE '%MANMADE_DISASTER%'
+        OR LOWER(DocumentIdentifier) LIKE '%crash%'
+        OR LOWER(DocumentIdentifier) LIKE '%accident%'
+        OR LOWER(DocumentIdentifier) LIKE '%collision%'
+        OR LOWER(DocumentIdentifier) LIKE '%struck%'
+        OR LOWER(DocumentIdentifier) LIKE '%hit%'
+        OR LOWER(DocumentIdentifier) LIKE '%injury%'
+        OR LOWER(DocumentIdentifier) LIKE '%injured%'
+        OR LOWER(DocumentIdentifier) LIKE '%fatal%'
+        OR LOWER(DocumentIdentifier) LIKE '%death%'
+      )
+    ORDER BY DATE DESC
+    LIMIT @maxCount
+  `;
+

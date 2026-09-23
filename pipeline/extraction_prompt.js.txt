@@ -1,0 +1,39 @@
+// Format prompt for LLM
+function extractionPrompt(article) {
+  return [
+    'You are extracting structured data for a U.S. Robotaxi crash news dataset (excluding consumer AV/ADAS).',
+    'Include an article only if it reports a specific real-world physical crash, accident, wreck, or collision involving a commercial robotaxi, autonomous delivery vehicle, or driverless shuttle service (e.g. Waymo, Cruise, Zoox, Motional, Nuro).',
+    'Strictly EXCLUDE personally-owned / consumer vehicles operating under driver assist systems (ADAS) or supervised self-driving (such as Tesla vehicles under Autopilot/FSD, Cadillac Super Cruise, Ford BlueCruise, etc.).',
+    'CRITICAL: Exclude non-crash incidents such as traffic stalls, vehicles stopping/blocking traffic, software routing anomalies/loops, or attempted hijacking/theft where no physical impact or collision occurred.',
+    'Exclude general policy/law articles, human-driven taxi crashes (without autonomous tech), drone/aircraft incidents, and general product announcements.',
+    'Return one valid JSON object only. Do not include markdown.',
+    '',
+    'Required JSON fields:',
+    'is_robotaxi_av_crash, reject_reason, confidence, crash_date, state, city, county, location_text, severity, vehicle_operator, operation_mode, collision_partner, at_fault_party, fatality_count, injury_count, victim_details, crash_summary, road_type, lighting_condition, weather_condition, speed_limit, alcohol_drugs_involved, investigating_agency, road_name, source_evidence, uncertainty_flags.',
+    '',
+    'Field instructions:',
+    '- is_robotaxi_av_crash: boolean. Set to true ONLY if there was a physical collision, crash, or impact involving a commercial robotaxi, autonomous delivery vehicle, or driverless shuttle. Set to false if no physical collision occurred (e.g. a vehicle simply stalling, blocking traffic, experiencing a software routing glitch/loop, or being subjected to an attempted hijacking/theft with no physical impact). Also set to false for passenger/personally-owned vehicles operating under driver assistant systems (ADAS) or supervised self-driving (such as Tesla Autopilot/FSD).',
+    '- severity: Choose one: "Fatal", "Injury", "Property Damage Only", "Unknown".',
+    '- vehicle_operator: Choose one: "Waymo", "Cruise", "Zoox", "Motional", "Nuro", "Uber", "Apple", "Argo AI", "Other", "Unknown".',
+    '- operation_mode: Choose one: "Autonomous/Driverless" (no human in driver seat), "Autonomous with Safety Driver" (AV active but safety driver present), "Unknown".',
+    '- collision_partner: Choose one: "Pedestrian", "Cyclist", "Scooter/E-bike", "Motorcyclist", "Human-driven Vehicle", "Stationary Object", "Emergency Vehicle", "Other", "None/Solo Crash", "Unknown".',
+    '- at_fault_party: Which party was primarily at fault/blamed: "Robotaxi/AV", "Human-driven vehicle", "VRU" (pedestrian/cyclist), "Stationary/Other Object", "Unknown/Disputed", "None".',
+    '- crash_summary: Write a professional, structured crash narrative summary (describing AV movement, collision partner action, road details, victim demographics, and crash sequence).',
+    '- road_type: Road/infrastructure type (e.g. intersection, highway, sidewalk, parking lot, driveway, unknown).',
+    '- lighting_condition: e.g. daylight, dark (lighted), dark (not lighted), dawn, dusk, unknown.',
+    '- weather_condition: e.g. clear, rain, snow, fog, cloudy, unknown.',
+    '- speed_limit: Posted speed limit if mentioned (e.g. 45 mph), else null.',
+    '- alcohol_drugs_involved: e.g. driver suspected, pedestrian suspected, both suspected, no, unknown.',
+    '- investigating_agency: Name of the investigating police/patrol agency.',
+    '- road_name: Name of the street or highway.',
+    '',
+    `Article title: ${article.title || ''}`,
+    `Article URL: ${article.canonical_url || ''}`,
+    `Article publication date: ${article.publication_date || ''}`,
+    '',
+    'Article text:',
+    article.article_text || ''
+  ].join('\n');
+}
+
+// Call OpenRouter with fallback models and retry capability for rate limits / transient errors

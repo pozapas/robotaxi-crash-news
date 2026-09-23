@@ -1,0 +1,53 @@
+{
+ "threshold_jaccard": 0.5,
+ "shingle_k": 5,
+ "seed": 20260921,
+ "text_coverage": {
+  "n_articles": 1498,
+  "n_with_text": 1414
+ },
+ "compression": {
+  "AV": {
+   "articles": 389,
+   "stories": 331,
+   "pct_duplicate": 0.14910025706940877,
+   "events_with_any_dup": 8,
+   "n_events": 51
+  },
+  "Ped": {
+   "articles": 1109,
+   "stories": 1046,
+   "pct_duplicate": 0.05680793507664561,
+   "events_with_any_dup": 34,
+   "n_events": 746
+  }
+ },
+ "n_articles": {
+  "af": 4.373585669193866,
+  "boot_lo": 1.9062183026777368,
+  "boot_hi": 7.249443182658002,
+  "n_treat": 51,
+  "n_total": 429
+ },
+ "n_stories": {
+  "af": 4.0238355192279185,
+  "boot_lo": 1.9475400181993365,
+  "boot_hi": 6.317756803043915,
+  "n_treat": 51,
+  "n_total": 429
+ },
+ "stories_PDO": {
+  "af": 1.7159829736401018,
+  "boot_lo": 1.185283693801908,
+  "boot_hi": 2.3229676702651147,
+  "n_treat": 33,
+  "n_total": 233
+ },
+ "stories_Injury": {
+  "af": 9.176474654722037,
+  "boot_lo": 3.4420863570417546,
+  "boot_hi": 14.33309446333155,
+  "n_treat": 17,
+  "n_total": 342
+ }
+}

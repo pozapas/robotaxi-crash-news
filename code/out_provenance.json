@@ -1,0 +1,73 @@
+{
+ "robotaxi": {
+  "n_articles": 29038,
+  "discovery_source": [
+   "gdelt_bigquery"
+  ],
+  "llm_models": {
+   "keyword_screen_only": 27302,
+   "deepseek/deepseek-v4-flash": 1736
+  },
+  "n_search_runs": 9,
+  "ingest_first": "2026-06-30",
+  "ingest_last": "2026-07-08",
+  "pub_first": "2020-01-01",
+  "pub_last": "2026-06-30",
+  "n_domains": 3423,
+  "max_articles_in_one_month": 1426
+ },
+ "pedestrian": {
+  "n_articles": 201520,
+  "discovery_source": [
+   "gdelt_bigquery"
+  ],
+  "llm_models": {
+   "keyword_screen_only": 176367,
+   "openai/gpt-oss-120b:free": 25144
+  },
+  "n_search_runs": 14,
+  "ingest_first": "2026-06-17",
+  "ingest_last": "2026-06-28",
+  "pub_first": "2016-01-01",
+  "pub_last": "2025-12-31",
+  "n_domains": 7709,
+  "max_articles_in_one_month": 4252
+ },
+ "common_domain": {
+  "n_domains_av": 3423,
+  "n_domains_ped": 7709,
+  "n_shared": 2829,
+  "share_av_on_shared": 0.9717223650385605,
+  "share_ped_on_shared": 0.9242560865644724,
+  "af_all": {
+   "af": 4.373585669193866,
+   "boot_lo": 1.9062183026777368,
+   "boot_hi": 7.249443182658002,
+   "n_treat": 51,
+   "n_total": 429
+  },
+  "af_shared": {
+   "af": 4.542201327607219,
+   "boot_lo": 2.0269804500785096,
+   "boot_hi": 7.428508475137008,
+   "n_treat": 51,
+   "n_total": 429
+  },
+  "af_shared_by_severity": {
+   "PDO": {
+    "af": 1.7402895248544115,
+    "boot_lo": 1.177623763108185,
+    "boot_hi": 2.5049892708147605,
+    "n_treat": 33,
+    "n_total": 233
+   },
+   "Injury": {
+    "af": 10.580219598525765,
+    "boot_lo": 3.7681119579885487,
+    "boot_hi": 16.995913601423574,
+    "n_treat": 17,
+    "n_total": 342
+   }
+  }
+ }
+}
