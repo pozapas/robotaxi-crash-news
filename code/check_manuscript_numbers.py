@@ -84,7 +84,9 @@ CHECKS = [
     ("early inj", "%.2f" % sen['n_early']['Injury']['af'], True),
     ("early inj drop4", "%.2f" % sen['n_early']['Injury_drop_top4']['af'], True),
     ("p90 event weighted", "%d days" % sen['timing']['AV']['p90_event_weighted'], True),
-    ("p90 ew no cruise", "%d days" % sen['timing']['AV']['no_cruise']['p90_event_weighted'], True),
+    ("p90 ew no cruise", "with or without the Cruise crash"
+     if sen['timing']['AV']['no_cruise']['p90_event_weighted'] == sen['timing']['AV']['p90_event_weighted']
+     else "*** no-Cruise p90 differs ***", True),
     ("first after 14 AV", "%d percent" % round(100*sen['timing']['AV']['first_after_14_share']), True),
     ("first after 14 Ped", "%d percent" % round(100*sen['timing']['Ped']['first_after_14_share']), True),
     ("multi tail AV", "%d percent" % round(100*sen['timing']['AV']['multi_tail_share_mean']), True),
