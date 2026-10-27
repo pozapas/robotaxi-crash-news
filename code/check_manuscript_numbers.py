@@ -4,7 +4,7 @@ Guards against a stale figure surviving the rewrite."""
 import io, json, os, glob
 
 SC = os.path.dirname(os.path.abspath(__file__))
-REAN = os.path.join(SC, 'rean')
+REAN = os.path.join(SC, 'rean') if os.path.isdir(os.path.join(SC, 'rean')) else SC
 ROOT = (u"D:/OneDrive - Texas State University/AIT/Papers/TRB2027/Crash News/"
         u"TRB2027/TRB_R_robotaxi_amplification/RoboTaxi_CrashNews_Journal")
 
@@ -12,6 +12,7 @@ core = json.load(io.open(os.path.join(REAN, 'out_core.json'), encoding='utf-8'))
 rest = json.load(io.open(os.path.join(REAN, 'out_rest.json'), encoding='utf-8'))
 tab = json.load(io.open(os.path.join(REAN, 'out_table.json'), encoding='utf-8'))
 syn = json.load(io.open(os.path.join(REAN, 'out_syndication.json'), encoding='utf-8'))
+val = json.load(io.open(os.path.join(REAN, 'out_validation.json'), encoding='utf-8'))
 
 text = u''
 for f in sorted(glob.glob(os.path.join(ROOT, 'sections', '*.tex'))):
@@ -60,6 +61,18 @@ CHECKS = [
     ("stories Injury", "%.2f" % syn['stories_Injury']['af'], True),
     ("dup pct AV", "%.1f" % (100*syn['compression']['AV']['pct_duplicate']), True),
     ("dup pct Ped", "%.1f" % (100*syn['compression']['Ped']['pct_duplicate']), True),
+    ("kappa rel_av", "%.2f" % val['agreement']['rel_av']['kappa'], True),
+    ("kappa sev", "%.2f" % val['agreement']['sev']['kappa'], True),
+    ("kappa link_av", "%.2f" % val['agreement']['link_av']['kappa'], True),
+    ("recall AV", "%.2f" % val['discovery']['robotaxi']['all']['recall'], True),
+    ("recall Ped", "%.2f" % val['discovery']['pedestrian']['all']['recall'], True),
+    ("recall Ped lo", "%.2f" % val['discovery']['pedestrian']['all']['rec_lo'], True),
+    ("recall text Ped", "%.2f" % val['discovery']['pedestrian']['text_only']['recall'], True),
+    ("false link AV", "%.1f" % (100*val['linkage']['robotaxi']['rate']), True),
+    ("false link Ped", "%.1f" % (100*val['linkage']['pedestrian']['rate']), True),
+    ("injury confirmed af", "%.2f" % val['injury_confirmed']['af'], True),
+    ("injury confirmed lo", "%.2f" % val['injury_confirmed']['boot_lo'], True),
+    ("pdo confirmed af", "%.2f" % val['pdo_confirmed']['af'], True),
 ]
 
 bad = 0

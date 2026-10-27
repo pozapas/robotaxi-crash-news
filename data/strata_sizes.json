@@ -1,0 +1,18 @@
+{
+ "robotaxi": {
+  "candidate": 1736,
+  "rejected_high_risk": 7532,
+  "rejected_other_text": 11286,
+  "rejected_no_text": 8484,
+  "candidate_without_text": 0,
+  "high_risk_without_text": 1
+ },
+ "pedestrian": {
+  "candidate": 25144,
+  "rejected_high_risk": 39740,
+  "rejected_other_text": 55397,
+  "rejected_no_text": 81230,
+  "candidate_without_text": 571,
+  "high_risk_without_text": 991
+ }
+}

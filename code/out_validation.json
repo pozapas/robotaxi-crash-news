@@ -1,0 +1,136 @@
+{
+ "seed": 20260921,
+ "n_items": 516,
+ "agreement": {
+  "rel_av": {
+   "n": 155,
+   "raw": 0.7935483870967742,
+   "kappa": 0.5315893852110681,
+   "ac1": 0.7363420111895175,
+   "disagreements": 32
+  },
+  "rel_ped": {
+   "n": 150,
+   "raw": 0.84,
+   "kappa": 0.6937212863705972,
+   "ac1": 0.7835530370214494,
+   "disagreements": 24
+  },
+  "sev": {
+   "n": 51,
+   "raw": 0.5882352941176471,
+   "kappa": 0.39729881823297697,
+   "ac1": 0.4755998041455851,
+   "disagreements": 21
+  },
+  "link_av": {
+   "n": 80,
+   "raw": 0.6875,
+   "kappa": 0.17491749174917498,
+   "ac1": 0.6242896726623773,
+   "disagreements": 25
+  },
+  "link_ped": {
+   "n": 80,
+   "raw": 0.9625,
+   "kappa": 0.8044009779951102,
+   "ac1": 0.9585366907096273,
+   "disagreements": 3
+  }
+ },
+ "n_adjudicated": 105,
+ "discovery": {
+  "robotaxi": {
+   "all": {
+    "precision": 0.8,
+    "prec_lo": 0.675,
+    "prec_hi": 0.925,
+    "recall": 0.28989197933517713,
+    "rec_lo": 0.20614267445582873,
+    "rec_hi": 0.4328591451519637
+   },
+   "text_only": {
+    "precision": 0.8,
+    "prec_lo": 0.675,
+    "prec_hi": 0.925,
+    "recall": 0.32253045204890907,
+    "rec_lo": 0.22950428166899797,
+    "rec_hi": 0.47341085560021456
+   }
+  },
+  "pedestrian": {
+   "all": {
+    "precision": 0.925,
+    "prec_lo": 0.849375,
+    "prec_hi": 1.0,
+    "recall": 0.32684616799439553,
+    "rec_lo": 0.26477687561115354,
+    "rec_hi": 0.4131234497586682
+   },
+   "text_only": {
+    "precision": 0.925,
+    "prec_lo": 0.849375,
+    "prec_hi": 1.0,
+    "recall": 0.5714795426038131,
+    "rec_lo": 0.46883376487683964,
+    "rec_hi": 0.7097318247810163
+   }
+  }
+ },
+ "linkage": {
+  "robotaxi": {
+   "false": 4,
+   "n": 80,
+   "rate": 0.05,
+   "lo": 0.01961323712729557,
+   "hi": 0.121624525510822,
+   "unclear": 0
+  },
+  "pedestrian": {
+   "false": 7,
+   "n": 80,
+   "rate": 0.0875,
+   "lo": 0.04303145464743989,
+   "hi": 0.1697698277708346,
+   "unclear": 0
+  }
+ },
+ "severity": {
+  "table": {
+   "INJURY": {
+    "INJURY": 16,
+    "PDO": 0,
+    "UNCLEAR": 1
+   },
+   "PDO": {
+    "INJURY": 0,
+    "PDO": 15,
+    "UNCLEAR": 18
+   },
+   "UNCLEAR": {
+    "INJURY": 1,
+    "PDO": 0,
+    "UNCLEAR": 0
+   }
+  },
+  "definite_both": 31,
+  "contradicted": 0,
+  "injury_confirmed": 16,
+  "injury_total": 17,
+  "pdo_confirmed": 15,
+  "pdo_total": 33,
+  "pdo_unclear": 18
+ },
+ "injury_confirmed": {
+  "af": 10.69617912528299,
+  "boot_lo": 3.3572999407625783,
+  "boot_hi": 17.269228668285116,
+  "n_treat": 16
+ },
+ "pdo_confirmed": {
+  "af": 2.2328873569080177,
+  "boot_lo": 1.3573415578463643,
+  "boot_hi": 3.2462916239342476,
+  "n_treat": 15
+ }
+}
