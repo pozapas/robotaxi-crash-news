@@ -19,21 +19,20 @@ import glob, json, re, hashlib
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from paths import load_pooled, load_articles, national_domains, require, RAW_AV, RAW_PED
 import statsmodels.api as sm
 
-AV_EXP = Path(r"D:\OneDrive - Texas State University\AIT\n8n Robotaxi Crash News\exports")
-PED_EXP = Path(r"D:\OneDrive - Texas State University\AIT\AAA\CrashNews\Data")
-DB = Path(r"D:\OneDrive - Texas State University\AIT\Papers\TRB2027\Crash News"
-          r"\TRB2027\TRB_R_robotaxi_amplification\data_build")
+AV_EXP = require(RAW_AV, "ROBOTAXI_RAW_AV")
+PED_EXP = require(RAW_PED, "ROBOTAXI_RAW_PED")
 OUT = Path(__file__).resolve().parent
 THRESH = 0.50
 K = 5
 SEED = 20260921
 rng = np.random.default_rng(SEED)
 
-pooled = pd.read_parquet(DB / "pooled.parquet").copy()
+pooled = load_pooled().copy()
 pooled["cell"] = pooled.metro.astype(str) + " | " + pooled.year_bin.astype(str)
-arts = pd.read_parquet(DB / "articles.parquet").copy()
+arts = load_articles().copy()
 
 
 def load_text(root, pattern):

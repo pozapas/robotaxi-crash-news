@@ -78,7 +78,7 @@ decay = {"grid": grid}
 # (r08_rest.py -> out_rest.json) so the figure and the manuscript cannot drift
 # apart through independent bootstrap draws. Recomputed only if that is absent.
 import json
-CANON = C.ROOT / "RoboTaxi_CrashNews_Journal" / "supplement" / "code" / "out_rest.json"
+CANON = HERE.parent / "out_rest.json"
 canon = json.loads(CANON.read_text(encoding="utf-8")) if CANON.exists() else None
 print("")
 print("peak-aligned decay, event-cluster bootstrap")

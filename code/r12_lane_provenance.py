@@ -9,12 +9,11 @@ import glob, json
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from paths import load_pooled, load_articles, national_domains, require, RAW_AV, RAW_PED
 import statsmodels.api as sm
 
-AV = Path(r"D:\OneDrive - Texas State University\AIT\n8n Robotaxi Crash News\exports")
-PED = Path(r"D:\OneDrive - Texas State University\AIT\AAA\CrashNews\Data")
-DB = Path(r"D:\OneDrive - Texas State University\AIT\Papers\TRB2027\Crash News"
-          r"\TRB2027\TRB_R_robotaxi_amplification\data_build")
+AV = require(RAW_AV, "ROBOTAXI_RAW_AV")
+PED = require(RAW_PED, "ROBOTAXI_RAW_PED")
 OUT = Path(__file__).resolve().parent
 SEED = 20260921
 rng = np.random.default_rng(SEED)
@@ -87,9 +86,9 @@ print("  domains reached by the robotaxi lane   : %d" % len(av_dom))
 print("  domains reached by the pedestrian lane : %d" % len(pe_dom))
 print("  reached by BOTH                        : %d" % len(both))
 
-pooled = pd.read_parquet(DB / "pooled.parquet").copy()
+pooled = load_pooled().copy()
 pooled["cell"] = pooled.metro.astype(str) + " | " + pooled.year_bin.astype(str)
-arts = pd.read_parquet(DB / "articles.parquet").copy()
+arts = load_articles().copy()
 arts["dom"] = dom(arts.source_domain)
 arts["in_both"] = arts.dom.isin(both)
 print()

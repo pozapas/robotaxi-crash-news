@@ -14,12 +14,11 @@ import json
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from paths import load_pooled, load_articles, national_domains
 import statsmodels.api as sm
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE.parent / "data"
-DB = Path(r"D:\OneDrive - Texas State University\AIT\Papers\TRB2027\Crash News"
-          r"\TRB2027\TRB_R_robotaxi_amplification\data_build")
 SEED, N_BOOT = 20260921, 2000
 rng = np.random.default_rng(SEED)
 codes = pd.read_csv(DATA / "human_validation_codes.csv", keep_default_na=False)
@@ -122,7 +121,7 @@ print("  definite on both sides: %d, contradicted: %d; injury confirmed %d of %d
          len(conf_pdo), res["severity"]["pdo_total"]))
 
 # ---------------- refit on confirmed events ----------------
-pooled = pd.read_parquet(DB / "pooled.parquet").copy()
+pooled = load_pooled().copy()
 pooled["cell"] = pooled.metro.astype(str) + " | " + pooled.year_bin.astype(str)
 g = pooled.groupby("cell").AV.agg(["sum", "count"])
 overlap = pooled[pooled.cell.isin(g[(g["sum"] > 0) & (g["sum"] < g["count"])].index)].copy()

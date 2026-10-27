@@ -5,8 +5,10 @@ import io, json, os, glob
 
 SC = os.path.dirname(os.path.abspath(__file__))
 REAN = os.path.join(SC, 'rean') if os.path.isdir(os.path.join(SC, 'rean')) else SC
-ROOT = (u"D:/OneDrive - Texas State University/AIT/Papers/TRB2027/Crash News/"
-        u"TRB2027/TRB_R_robotaxi_amplification/RoboTaxi_CrashNews_Journal")
+import sys
+sys.path.insert(0, SC)
+from paths import MANUSCRIPT, require
+ROOT = str(require(MANUSCRIPT, "ROBOTAXI_MANUSCRIPT"))
 
 core = json.load(io.open(os.path.join(REAN, 'out_core.json'), encoding='utf-8'))
 rest = json.load(io.open(os.path.join(REAN, 'out_rest.json'), encoding='utf-8'))

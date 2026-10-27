@@ -10,17 +10,15 @@ import json
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from paths import load_pooled, load_articles, national_domains
 import statsmodels.api as sm
 
-ROOT = Path(r"D:\OneDrive - Texas State University\AIT\Papers\TRB2027\Crash News"
-            r"\TRB2027\TRB_R_robotaxi_amplification")
-DB = ROOT / "data_build"
 OUT = Path(__file__).resolve().parent
 SEED = 20260921
 N_BOOT = 2000
 rng = np.random.default_rng(SEED)
 
-pooled = pd.read_parquet(DB / "pooled.parquet").copy()
+pooled = load_pooled().copy()
 pooled["cell"] = pooled.metro.astype(str) + " | " + pooled.year_bin.astype(str)
 
 

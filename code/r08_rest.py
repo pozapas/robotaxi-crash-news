@@ -19,18 +19,16 @@ import json
 from pathlib import Path
 import numpy as np
 import pandas as pd
+from paths import load_pooled, load_articles, national_domains
 import statsmodels.api as sm
 
-ROOT = Path(r"D:\OneDrive - Texas State University\AIT\Papers\TRB2027\Crash News"
-            r"\TRB2027\TRB_R_robotaxi_amplification")
-DB = ROOT / "data_build"
 OUT = Path(__file__).resolve().parent
 SEED = 20260921
 rng = np.random.default_rng(SEED)
 
-pooled = pd.read_parquet(DB / "pooled.parquet").copy()
-arts = pd.read_parquet(DB / "articles.parquet").copy()
-nat = pd.read_csv(DB / "national_domains.csv")
+pooled = load_pooled().copy()
+arts = load_articles().copy()
+nat = national_domains()
 natset = set(nat.domain.astype(str).str.lower().str.strip())
 
 pooled["cell"] = pooled.metro.astype(str) + " | " + pooled.year_bin.astype(str)

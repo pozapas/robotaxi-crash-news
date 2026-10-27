@@ -50,8 +50,13 @@ python code/r14_sensitivity_checks.py
 python code/check_manuscript_numbers.py
 ```
 
-The scripts read the parquet build by default. Point them at `data/*.csv`
-instead if you are working from this repository alone.
+Run the commands from the repository root. The scripts read `data/*.csv` by
+default, so the core estimates (`r08_*`, `r13`, `r14`) reproduce from this
+repository alone. `code/paths.py` lists the optional environment variables:
+`ROBOTAXI_BUILD` for the full parquet build (same rows, same results),
+`ROBOTAXI_RAW_AV` and `ROBOTAXI_RAW_PED` for the raw discovery exports that
+`r09` and `r12` need, and `ROBOTAXI_MANUSCRIPT` for the manuscript source
+that `check_manuscript_numbers.py` reads.
 
 ## What is not here, and why
 
