@@ -31,6 +31,7 @@ is drawn from a different mix of outlets.
 | `data/human_validation_codes.csv` | Item-level codes from two independent human coders and the adjudicator for 516 items, with the pipeline label and sampling stratum; no article text. |
 | `data/strata_sizes.json` | Population size of each discovery sampling stratum, used to reweight recall. |
 | `coding/CODING_RULES.md` | The items, rules and protocol of the human validation. |
+| `docs/claims.md` | Every citation in the manuscript with the sentence that cites it, a short supporting excerpt from the source, and its location. |
 
 ## Reproducing the estimates
 
