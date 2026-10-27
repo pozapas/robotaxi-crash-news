@@ -1,0 +1,280 @@
+{
+ "seed": 20260921,
+ "n_boot": 2000,
+ "n_local": {
+  "all": {
+   "af": 2.5510065044301613,
+   "wald_lo": 1.3111842271630667,
+   "wald_hi": 4.963173023919896,
+   "boot_lo": 0.9893588789634823,
+   "boot_hi": 4.302469226664136,
+   "n_treat": 51,
+   "n_comp": 378,
+   "n_cells": 11,
+   "singleton_cells": 1
+  },
+  "PDO": {
+   "af": 0.8510934448973067,
+   "wald_lo": 0.5446098201308176,
+   "wald_hi": 1.330053232924023,
+   "boot_lo": 0.5093104736029017,
+   "boot_hi": 1.2040634937915322,
+   "n_treat": 33,
+   "n_comp": 200,
+   "n_cells": 9,
+   "singleton_cells": 1
+  },
+  "Injury": {
+   "af": 6.265845219046551,
+   "wald_lo": 3.00230678943585,
+   "wald_hi": 13.076883564063035,
+   "boot_lo": 2.0828016126798934,
+   "boot_hi": 9.813894526547603,
+   "n_treat": 17,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 1
+  },
+  "Injury_drop_top1": {
+   "af": 3.9203374514098566,
+   "wald_lo": 1.5685083270268465,
+   "wald_hi": 9.798510768546064,
+   "boot_lo": 1.1131927419260212,
+   "boot_hi": 6.804997796384782,
+   "n_treat": 16,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 1
+  },
+  "Injury_drop_top4": {
+   "af": 0.819091526842348,
+   "wald_lo": 0.4712433598110053,
+   "wald_hi": 1.4237037305183489,
+   "boot_lo": 0.48594896420262995,
+   "boot_hi": 1.1500733211068592,
+   "n_treat": 13,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 2
+  }
+ },
+ "n_early": {
+  "all": {
+   "af": 2.038208118877804,
+   "wald_lo": 0.9827577506780233,
+   "wald_hi": 4.227178399756474,
+   "boot_lo": 0.6986557917529105,
+   "boot_hi": 3.583729470685668,
+   "n_treat": 51,
+   "n_comp": 378,
+   "n_cells": 11,
+   "singleton_cells": 1
+  },
+  "PDO": {
+   "af": 0.742465123125411,
+   "wald_lo": 0.47713189991372496,
+   "wald_hi": 1.1553502483428788,
+   "boot_lo": 0.45626501420664917,
+   "boot_hi": 1.0755587599555074,
+   "n_treat": 33,
+   "n_comp": 200,
+   "n_cells": 9,
+   "singleton_cells": 1
+  },
+  "Injury": {
+   "af": 5.177614485285959,
+   "wald_lo": 2.3266356980052025,
+   "wald_hi": 11.522083917661545,
+   "boot_lo": 1.4160900663644351,
+   "boot_hi": 8.057312016830943,
+   "n_treat": 17,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 1
+  },
+  "Injury_drop_top1": {
+   "af": 3.9355069743884403,
+   "wald_lo": 1.193773542225922,
+   "wald_hi": 12.974165197681112,
+   "boot_lo": 0.37483793617037264,
+   "boot_hi": 7.544656284986656,
+   "n_treat": 16,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 1
+  },
+  "Injury_drop_top4": {
+   "af": 0.45602316741746646,
+   "wald_lo": 0.2532048057856011,
+   "wald_hi": 0.8213000877935329,
+   "boot_lo": 0.31865368837193464,
+   "boot_hi": 0.625507772433916,
+   "n_treat": 13,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 2
+  }
+ },
+ "subset_sizes": {
+  "all": {
+   "n_treat": 51,
+   "n_comp": 378,
+   "n_cells": 11,
+   "singleton_cells": 1
+  },
+  "PDO": {
+   "n_treat": 33,
+   "n_comp": 200,
+   "n_cells": 9,
+   "singleton_cells": 1
+  },
+  "Injury": {
+   "n_treat": 17,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 1
+  },
+  "Injury_confirmed": {
+   "n_treat": 16,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 2
+  },
+  "PDO_confirmed": {
+   "n_treat": 15,
+   "n_comp": 193,
+   "n_cells": 8,
+   "singleton_cells": 5
+  },
+  "Injury_drop_top1": {
+   "n_treat": 16,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 1
+  },
+  "Injury_drop_top2": {
+   "n_treat": 15,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 2
+  },
+  "Injury_drop_top4": {
+   "n_treat": 13,
+   "n_comp": 325,
+   "n_cells": 7,
+   "singleton_cells": 2
+  },
+  "era_pre": {
+   "n_treat": 20,
+   "n_comp": 226,
+   "n_cells": 4,
+   "singleton_cells": 1
+  },
+  "era_post": {
+   "n_treat": 31,
+   "n_comp": 183,
+   "n_cells": 9,
+   "singleton_cells": 1
+  },
+  "op_Waymo": {
+   "n_treat": 22,
+   "n_comp": 306,
+   "n_cells": 7,
+   "singleton_cells": 2
+  },
+  "op_Cruise": {
+   "n_treat": 16,
+   "n_comp": 96,
+   "n_cells": 3,
+   "singleton_cells": 0
+  },
+  "op_Zoox": {
+   "n_treat": 8,
+   "n_comp": 98,
+   "n_cells": 4,
+   "singleton_cells": 1
+  },
+  "op_Tesla": {
+   "n_treat": 2,
+   "n_comp": 2,
+   "n_cells": 1,
+   "singleton_cells": 0
+  }
+ },
+ "in_window_operators": {
+  "Waymo": 22,
+  "Cruise": 16,
+  "Zoox": 8,
+  "Other": 2,
+  "Tesla": 2,
+  "Pony.ai": 1
+ },
+ "timing": {
+  "AV": {
+   "n_events": 40,
+   "n_articles": 350,
+   "p50_article": 17.0,
+   "p90_article": 90.10000000000002,
+   "p50_event_weighted": 12.0,
+   "p90_event_weighted": 106.0,
+   "first_lag_median": 1.5,
+   "first_after_14_share": 0.375,
+   "n_single": 25,
+   "single_after_14_share": 0.32,
+   "multi_tail_share_mean": 0.6865781537423329,
+   "n_multi": 15,
+   "no_cruise": {
+    "n_events": 39,
+    "n_articles": 207,
+    "p50_article": 9.0,
+    "p90_article": 102.0,
+    "p90_event_weighted": 106.0,
+    "tail_share_event_mean": 0.4518038622516235
+   },
+   "no_top4": {
+    "n_events": 36,
+    "n_articles": 82,
+    "p50_article": 17.0,
+    "p90_article": 105.20000000000005,
+    "p90_event_weighted": 114.0,
+    "tail_share_event_mean": 0.45282186948853614
+   }
+  },
+  "Ped": {
+   "n_events": 683,
+   "n_articles": 1031,
+   "p50_article": 1.0,
+   "p90_article": 6.0,
+   "p50_event_weighted": 1.0,
+   "p90_event_weighted": 7.0,
+   "first_lag_median": 1.0,
+   "first_after_14_share": 0.05417276720351391,
+   "n_single": 490,
+   "single_after_14_share": 0.061224489795918366,
+   "multi_tail_share_mean": 0.059758203799654575,
+   "n_multi": 193
+  }
+ },
+ "within_cells": {
+  "tail_share": {
+   "diff": 0.35989277912179335,
+   "lo": 0.2025562845054773,
+   "hi": 0.5172292737381095,
+   "mean_av": 0.45746680765337483,
+   "mean_ped": 0.05938123752495011,
+   "n_av": 40,
+   "n_ped": 334,
+   "n_cells": 9
+  },
+  "national_share": {
+   "diff": 0.41838878913310723,
+   "lo": 0.2966936692553529,
+   "hi": 0.5400839090108616,
+   "mean_av": 0.58210943792714,
+   "mean_ped": 0.11340388007054673,
+   "n_av": 51,
+   "n_ped": 378,
+   "n_cells": 11
+  }
+ }
+}

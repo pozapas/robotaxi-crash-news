@@ -27,6 +27,7 @@ is drawn from a different mix of outlets.
 | `pipeline/` | The GDELT BigQuery discovery statement and the extraction prompt, verbatim. |
 | `code/r12_lane_provenance.py` | Lane provenance and the common-domain-universe test. |
 | `code/r13_human_validation.py` | Human validation: inter-coder agreement, adjudicated discovery and false-link rates, and severity contrasts refitted on human-confirmed events. |
+| `code/r14_sensitivity_checks.py` | Local-outlet and 14-day contrasts with the injury exclusions, event-weighted lag quantiles, first-article lags, within-cell persistence and composition contrasts, and the cells behind each subset fit. |
 | `data/human_validation_codes.csv` | Item-level codes from two independent human coders and the adjudicator for 516 items, with the pipeline label and sampling stratum; no article text. |
 | `data/strata_sizes.json` | Population size of each discovery sampling stratum, used to reweight recall. |
 | `coding/CODING_RULES.md` | The items, rules and protocol of the human validation. |
@@ -44,6 +45,7 @@ python code/r08_table.py
 python code/r09_syndication.py
 python code/r12_lane_provenance.py
 python code/r13_human_validation.py
+python code/r14_sensitivity_checks.py
 python code/check_manuscript_numbers.py
 ```
 

@@ -13,6 +13,7 @@ rest = json.load(io.open(os.path.join(REAN, 'out_rest.json'), encoding='utf-8'))
 tab = json.load(io.open(os.path.join(REAN, 'out_table.json'), encoding='utf-8'))
 syn = json.load(io.open(os.path.join(REAN, 'out_syndication.json'), encoding='utf-8'))
 val = json.load(io.open(os.path.join(REAN, 'out_validation.json'), encoding='utf-8'))
+sen = json.load(io.open(os.path.join(REAN, 'out_sensitivity.json'), encoding='utf-8'))
 
 text = u''
 for f in sorted(glob.glob(os.path.join(ROOT, 'sections', '*.tex'))):
@@ -73,6 +74,24 @@ CHECKS = [
     ("injury confirmed af", "%.2f" % val['injury_confirmed']['af'], True),
     ("injury confirmed lo", "%.2f" % val['injury_confirmed']['boot_lo'], True),
     ("pdo confirmed af", "%.2f" % val['pdo_confirmed']['af'], True),
+    ("ac1 rel_av", "%.2f" % val['agreement']['rel_av']['ac1'], True),
+    ("ac1 link_av", "%.2f" % val['agreement']['link_av']['ac1'], True),
+    ("ac1 sev", "%.2f" % val['agreement']['sev']['ac1'], True),
+    ("local inj drop4", "%.2f" % sen['n_local']['Injury_drop_top4']['af'], True),
+    ("local inj drop4 lo", "%.2f" % sen['n_local']['Injury_drop_top4']['wald_lo'], True),
+    ("early all", "%.2f" % sen['n_early']['all']['af'], True),
+    ("early all lo", "%.2f" % sen['n_early']['all']['wald_lo'], True),
+    ("early inj", "%.2f" % sen['n_early']['Injury']['af'], True),
+    ("early inj drop4", "%.2f" % sen['n_early']['Injury_drop_top4']['af'], True),
+    ("p90 event weighted", "%d days" % sen['timing']['AV']['p90_event_weighted'], True),
+    ("p90 ew no cruise", "%d days" % sen['timing']['AV']['no_cruise']['p90_event_weighted'], True),
+    ("first after 14 AV", "%d percent" % round(100*sen['timing']['AV']['first_after_14_share']), True),
+    ("first after 14 Ped", "%d percent" % round(100*sen['timing']['Ped']['first_after_14_share']), True),
+    ("multi tail AV", "%d percent" % round(100*sen['timing']['AV']['multi_tail_share_mean']), True),
+    ("cell tail diff", "%d" % round(100*sen['within_cells']['tail_share']['diff']), True),
+    ("cell nat diff", "%d [%d, %d]" % tuple(round(100*sen['within_cells']['national_share'][k]) for k in ('diff', 'lo', 'hi')), True),
+    ("era pre ped", "%d human events" % sen['subset_sizes']['era_pre']['n_comp'], True),
+    ("era post ped", "%d after" % sen['subset_sizes']['era_post']['n_comp'], True),
 ]
 
 bad = 0

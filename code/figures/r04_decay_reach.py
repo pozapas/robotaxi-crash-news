@@ -243,7 +243,7 @@ def fig3(decay, tau, articles=None):
     # A small top reserve hosts the compact timing key without lifting the
     # panel heading off the shared baseline.
     ax_alloc.set_ylim(-0.60, 1.70)
-    ax_alloc.set_yticks([1, 0]); ax_alloc.set_yticklabels(["Human", "AV"])
+    ax_alloc.set_yticks([1, 0]); ax_alloc.set_yticklabels(["Human fatal\n(ped)", "AV"])
     for tick, color in zip(ax_alloc.get_yticklabels(), [PED, AV]):
         tick.set_color(color); tick.set_fontweight("bold")
     ax_alloc.set_xlabel("Share of linked coverage (%)", labelpad=8)
@@ -282,7 +282,7 @@ def fig3(decay, tau, articles=None):
     _hi_max = max(decay['AV']['ci'][1], decay['Ped']['ci'][1])
     ax_half.set_xlim(0, max(4.35, _hi_max + 1.05))
     ax_half.set_ylim(-0.45, 1.45)
-    ax_half.set_yticks([1, 0]); ax_half.set_yticklabels(["Human", "AV"])
+    ax_half.set_yticks([1, 0]); ax_half.set_yticklabels(["Human fatal\n(ped)", "AV"])
     for tick, color in zip(ax_half.get_yticklabels(), [PED, AV]):
         tick.set_color(color); tick.set_fontweight("bold")
     ax_half.set_xlabel("Fitted within-window half-life (days)", labelpad=8)
